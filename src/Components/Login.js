@@ -17,12 +17,14 @@ const Login = () => {
   };
 
   const handleLogin = async () => {
-    const{name,email,password,company,phone} = userData;
+    const{name,email,password,company,phone,isMember} = userData;
   if(!email || !password || !company ||!name||!phone){
       alert('Please fill in all fields')
       return;
     }
    
+   
+
     try {
       setLoading(true);
       // Dispatch the login action with the form data
@@ -31,7 +33,10 @@ const Login = () => {
 
       localStorage.setItem('userData', JSON.stringify(userData));
       // Redirect to the profile page after successful login
-      history('/profile'); // Use history.push for navigation
+  
+      history('/profile');
+      // Use history.push for navigation
+
     } catch (error) {
       setLoading(false);
       // Handle login error (e.g., show an error message)
