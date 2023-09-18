@@ -58,20 +58,22 @@ const Login = () => {
     <div className='login-container'>
       <h2>{userData.isMember?'Login':'Register'}</h2>
       <form>
-      <input
+      {!userData.isMember &&<input
           type="text"
           name="name"
           placeholder="Name"
           value={userData.name}
           onChange={handleInputChange}
-        />
-        <input
+        />}
+
+       {!userData.isMember&& <input
             type="text"
             name="company"
             placeholder="Company"
             value={userData.company}
             onChange={handleInputChange}
-          />
+          />}
+
         <input
           type="text"
           name="phone"
